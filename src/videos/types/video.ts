@@ -13,9 +13,9 @@ export type Video = {
     id: number,
     title: string,
     author: string,
-    canBeDownload: boolean,
-    minAgeRestriction: number,
-    createdAt: Date,
-    publicationDate: Date,
+    canBeDownloaded: boolean,
+    minAgeRestriction: number | null,
+    createdAt: string,
+    publicationDate: string,
     availableResolution: VideoResolution[],
 }
