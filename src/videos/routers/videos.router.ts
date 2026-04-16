@@ -41,7 +41,7 @@ videoRouter
     if(errors.length === 0) {
         const newVideo: Video = {
             id: db.videos.length ? db.videos[db.videos.length - 1].id + 1 : 1,
-            canBeDownload: false,
+            canBeDownloaded: false,
             minAgeRestriction: 1,
             createdAt: new Date(),
             publicationDate: new Date(Date.now() + 86400000),
