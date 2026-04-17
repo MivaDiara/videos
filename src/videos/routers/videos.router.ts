@@ -73,7 +73,11 @@ videoRouter
         if(!foundVideo){
             return res.status(404).send('Not found');
         }
-        if (!req.body.availableResolutions || req.body.availableResolutions && Array.isArray(req.body.availableResolutions) ) {
+        // Проверяем, что поле вообще есть и это массив
+        if (!req.body.availableResolutions || !Array.isArray(req.body.availableResolutions)) {
+            errors.push({ message: 'availableResolutions must be an array', field: 'availableResolutions' });
+        } else {
+            // Проверяем каждый элемент массива
             const validResolutions = Object.values(VideoResolution);
             for (const resolution of req.body.availableResolutions){
                 if (!validResolutions.includes(resolution)){
