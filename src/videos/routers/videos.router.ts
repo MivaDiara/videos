@@ -89,7 +89,7 @@ videoRouter
             };
             const videoIndex = db.videos.findIndex(v => v.id === Number(req.params.id));
             db.videos[videoIndex] = updateVideo;
-            return res.status(200).send(updateVideo);
+            return res.status(204).send(updateVideo);
         }
         res.status(400).send(errors);
     })
