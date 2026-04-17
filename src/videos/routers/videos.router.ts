@@ -76,6 +76,9 @@ videoRouter
         if(!foundVideo){
             return res.status(404).send('Not found');
         }
+        if (typeof req.body.canBeDownloaded !== "boolean") {
+            errors.push({ message: 'canBeDownloaded must be a boolean', field: 'canBeDownloaded' });
+        }
         // Проверяем, что поле вообще есть и это массив
         if (!req.body.availableResolutions || !Array.isArray(req.body.availableResolutions)) {
             errors.push({ message: 'availableResolutions must be an array', field: 'availableResolutions' });
