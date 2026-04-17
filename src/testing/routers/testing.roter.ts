@@ -7,5 +7,5 @@ export const testingRouter = Router();
 testingRouter
 .delete("/all-data", (req: Request, res: Response) => {
     db.videos = [];
-    res.status(204).send(db.videos);
+    res.sendStatus(204);
 })
