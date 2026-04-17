@@ -30,7 +30,10 @@ videoRouter
     if (!req.body.author || req.body.author.length > 20) {
         errors.push({message: "Author is wrong", field: "author"});
     }
-    if (!req.body.availableResolutions || !Array.isArray(req.body.availableResolutions) ) {
+    if (!req.body.availableResolutions || !Array.isArray(req.body.availableResolutions)) {
+        errors.push({ message: 'availableResolutions must be an array', field: 'availableResolutions' });
+    } else {
+        // Проверяем каждый элемент массива
         const validResolutions = Object.values(VideoResolution);
         for (const resolution of req.body.availableResolutions){
             if (!validResolutions.includes(resolution)){
