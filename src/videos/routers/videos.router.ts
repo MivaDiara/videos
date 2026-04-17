@@ -35,9 +35,9 @@ videoRouter
     } else {
         // Проверяем каждый элемент массива
         const validResolutions = Object.values(VideoResolution);
-        for (const resolution of req.body.availableResolutions){
-            if (!validResolutions.includes(resolution)){
-                errors.push({message: "Not available resolution", field: "resolution"})
+        for (const resolution of req.body.availableResolutions) {
+            if (!validResolutions.includes(resolution)) {
+                errors.push({ message: `Invalid resolution: ${resolution}`, field: 'availableResolutions' });
             }
         }
     }
