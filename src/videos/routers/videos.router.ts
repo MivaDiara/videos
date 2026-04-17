@@ -50,7 +50,7 @@ videoRouter
         db.videos.push(newVideo);
         return res.status(201).send(newVideo);
     }
-    return res.status(400).send(errors);
+    return res.status(400).send({errorsMessages: errors});
 })
     .put("/:id", (req: Request, res: Response) => {
         let errors: ErrorType[] = [];
