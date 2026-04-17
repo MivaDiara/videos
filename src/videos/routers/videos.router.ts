@@ -91,7 +91,7 @@ videoRouter
             db.videos[videoIndex] = updateVideo;
             return res.status(204).send(updateVideo);
         }
-        res.status(400).send(errors);
+        res.status(400).send({errorsMessages: errors});
     })
     .delete("/:id", (req: Request, res: Response) => {
         let index = db.videos.findIndex(v => v.id === Number(req.params.id));
